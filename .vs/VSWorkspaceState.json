@@ -8,6 +8,6 @@
     "\\app_server\\views",
     "\\public"
   ],
-  "SelectedNode": "\\app_server\\views\\addfitness.pug",
+  "SelectedNode": "\\app_server\\controllers\\addfitness.js",
   "PreviewInSolutionExplorer": false
 }
