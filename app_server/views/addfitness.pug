@@ -7,7 +7,7 @@ block content
             p.lead Welcome to our app
             .row
             .col-xs-12.col-md-6
-                form.form-horizontal(action="/routes", method="get", role="form")
+                form.form-horizontal(action="/addFitness", method="post", role="form")
                     .form-group
                     table
                         tr
@@ -27,4 +27,4 @@ block content
 
                         tr
                             td
-                                button(type='button' href="/addfitness") Add Exercise
+                                input(type="submit" value="add")

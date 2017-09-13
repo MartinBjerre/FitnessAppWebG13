@@ -1,8 +1,31 @@
+var mongoose = require('mongoose');
+var fitnessplan = mongoose.model('fitnessPlan');
 
-module.exports.fitnessAp = function (req, res)
-{
-    res.render('FitnessApp'), {
-        title: 'FitnessApp',
+module.exports.fitnessApp = function(req, res) {
+    fitnessplan.create(
+        {
+            exercise: req.body.Exercise,
+            description: req.body.Description,
+            sets: req.body.Sets,
+            repstime: req.body.Repstime
+        },
+        (err, location) =>
+        {
+            if (err)
+            {
+                res.render('error');
+            }
+            else
+            {
+                res.render('addfitness');
+            }
+        });
+};
+
+/*
+res.render('fitnessApp'),
+    {
+        title: 'fitnessApp',
         fitnessApp: {
             exercise: 'Exercise',
             description: 'Discription',
@@ -10,12 +33,13 @@ module.exports.fitnessAp = function (req, res)
             repstime: 'number'
         }
     };
-}
-//Testing communication between javascript and pug (each in)
+//Testing communication between javascript and pug (each in)*/
 module.exports.fitness = function (req, res) {
-    fitnessPlan.find({}, {}, function (err, docs) {
+    fitnessplan.find({}, {}, function (err, docs) {
         res.render('addfitness', {
-            "planlist": docs
+            "addfitness": docs
         });
     });
 };
+
+
