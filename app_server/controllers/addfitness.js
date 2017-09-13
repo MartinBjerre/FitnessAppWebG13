@@ -22,6 +22,21 @@ module.exports.fitnessApp = function(req, res) {
         });
 };
 
+//module.exports.fitnessApp = function(req, res) {
+//    fitnessplan.find(''
+
+//    )
+//    },
+//    (err, location) => {
+//        if (err) {
+//            res.render('error');
+//        }
+//        else {
+//            res.render('addfitness');
+//        }
+//    });
+//}
+
 /*
 res.render('fitnessApp'),
     {
