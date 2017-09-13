@@ -1,11 +1,5 @@
 var mongoose = require('mongoose');
 var gracefulShutdown; 
-//var path = require('path');
-//var favicon = require('serve-favicon');
-//var logger = require('morgan');
-//var cookieParser = require('cookie-parser');
-//var bodyParser = require('body-parser');
-require('./app_server/models/db');
 var url = 'mongodb://localhost:27017/myproject'; 
 
 //Opretter Connection
@@ -27,25 +21,21 @@ mongoose.connection.on('disconnected', function () {
 
 require('./addfitness');
 
-//gracefulShutdown = function (msg, callback) {
-//    mongoose.connection.close(function () {
-//        console.log('Mongoose disconnected through ' + msg);
-//        callback();
-//    });
-//};
 
-//process.once('SIGUSR2', function () {
-//    gracefulShutdown('nodemon restart', function () {
-//        process.kill(process.pid, 'SIGUSR2');
-//    });
-//});
-//process.on('SIGINT', function () {
-//    gracefulShutdown('app termination', function () {
-//        process.exit(0);
-//    });
-//});
-//process.on('SIGTERM', function () {
-//    gracefulShutdown('Heroku app shutdown', function () {
-//        process.exit(0);
-//    });
-//});
+/*dette funger ikke, og er blot udkast, skal fjernes.  
+//Maby change name myproject to alexandermartinnannafitnessapp!
+MongoClient.connect(url, function (err, db) {
+    assert.equal(null, err);
+    console.log("Connected sucessfully to server");
+    db.close();
+});
+
+var findDocuments = function (db, callback) {
+    var collection = db.collection('documents');
+    collection.find({}).toArray(function (err, docs) {
+        assert.equal(err, null);
+        console.log("Found the following records");
+        console.log(docs);
+        callback(docs);
+    });
+} */

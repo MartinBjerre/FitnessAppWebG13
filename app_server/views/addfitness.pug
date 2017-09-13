@@ -17,7 +17,7 @@ block content
                             th Reps
                         tr
                             td 
-                                input#Exercise.form-control(type='Text' name="Exercise" )
+                                input#Exercise.form-control(type='Text' name="Exercise")
                             td 
                                 input#Description.form-control(name="Description")
                             td 
@@ -28,16 +28,17 @@ block content
                        tr
                             td
                                 button(type='button' href='www.google.com') Add Exercise
-                
-               // table
+
+                    table
                        tr
                            th Exercice
                            th Description
                            th Set
                            th Reps
-                    for object in addfitness
-                       tr
-                           td = object.exercise
-                           td = object.description
-                           td = object.sets
-                           td = object.repstime
+                      for object in addfitness
+                        tr
+                            td = object.exercise
+                            td = object.description
+                            td = object.sets
+                            td = object.repstime
+
