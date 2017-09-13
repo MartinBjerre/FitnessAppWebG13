@@ -6,25 +6,28 @@ block content
             h1 Fitness Program
             p.lead Welcome to our app
             .row
-                .col-xs-12.col-md-6
+            .col-xs-12.col-md-6
                 form.form-horizontal(action="/routes", method="get", role="form")
                     .form-group
-                label.col-xs-10.col-sm-2.control-label(for="Exercise") Exercise
-                        .col-xs-12.col-sm-10
-                            input#Exercise.form-control(name="Exercise")
+                        tr
+                            td
+                                 input#Exercise.form-control(type='Text' name="Exercise")
+                            td
+                            td
+               
                 .form-group
                 label.col-xs-10.col-sm-2.control-label(for="Description") Description
                     .col-xs-12.col-sm-10
-                        input#Exercise.form-control(name="Exercise")
+                        input#Description.form-control(name="Description")
                 .form-group
                 label.col-xs-10.col-sm-2.control-label(for="Set") Set
                     .col-xs-12.col-sm-10
-                        input#Exercise.form-control(name="Exercise")
+                        input#Exercise.form-control(name="Set")
                 .form-group
                 label.col-xs-10.col-sm-2.control-label(for="Reps/time") Reps/time
                     .col-xs-12.col-sm-10
-                        input#Exercise.form-control(name="Exercise")
+                        input#Exercise.form-control(name="Reps/time")
                 .form-group
 
                 .col-md-12.col-sm-6
-                        button(type='button' class='btn btn-' + btnType + ' btn-' + btnSize) TEST 
+                        button(type='button' href='www.google.com') Add Exercise
