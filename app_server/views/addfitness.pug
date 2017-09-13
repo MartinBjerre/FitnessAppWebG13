@@ -19,11 +19,11 @@ block content
                             td 
                                 input#Exercise.form-control(type='Text' name="Exercise" value=(undefined == addfitness ? '' : addfitness.exercise)
                             td 
-                                input#Description.form-control(name="Description")
+                                input#Description.form-control(name="Description" value=(undefined == addfitness ? '' : addfitness.description)
                             td 
-                                input#Set.form-control(name="Set")
+                                input#Set.form-control(name="Set" value=(undefined == addfitness ? '' : addfitness.sets)
                             td 
-                                input#Reps.form-control(name="Reps/time")
+                                input#Reps.form-control(name="Reps/time" value=(undefined == addfitness ? '' : addfitness.repstime)
 
                        tr
                             td
@@ -39,5 +39,5 @@ block content
                        tr
                            td = object.exercise
                            td = object.description
-                           td = object.set
-                           td = object.reps
+                           td = object.sets
+                           td = object.repstime
