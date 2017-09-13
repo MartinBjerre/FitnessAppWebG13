@@ -27,27 +27,14 @@ module.exports.fitnessApp = function(req, res) {
         (err, fitnessplan) => {
             if (err) {
                 res.render('error');
-            } else {
-                if (fitnessplan != 0) {
-                res.render('error');
-                }
+            }
+            else{
                 res.render('addfitness', { fitnessplan: fitnessplan });
             }
         }
     );
 }
 
-/*
-res.render('fitnessApp'),
-    {
-        title: 'fitnessApp',
-        fitnessApp: {
-            exercise: 'Exercise',
-            description: 'Discription',
-            sets: 'Sets',
-            repstime: 'number'
-        }
-    };
 //Testing communication between javascript and pug (each in)*/
 module.exports.fitness = function (req, res) {
     fitnessplan.find({}, {}, function (err, docs) {
