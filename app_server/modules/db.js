@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
 var gracefulShutdown; 
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+//var path = require('path');
+//var favicon = require('serve-favicon');
+//var logger = require('morgan');
+//var cookieParser = require('cookie-parser');
+//var bodyParser = require('body-parser');
 require('./app_server/models/db');
 var url = 'mongodb://localhost:27017/myproject'; 
 
