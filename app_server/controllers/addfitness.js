@@ -22,20 +22,20 @@ module.exports.fitnessApp = function(req, res) {
         });
 };
 
-//module.exports.fitnessApp = function(req, res) {
-//    fitnessplan.find(''
-
-//    )
-//    },
-//    (err, location) => {
-//        if (err) {
-//            res.render('error');
-//        }
-//        else {
-//            res.render('addfitness');
-//        }
-//    });
-//}
+module.exports.fitnessApp = function(req, res) {
+    fitnessplan.find({},
+        (err, fitnessplan) => {
+            if (err) {
+                res.render('error');
+            } else {
+                if (fitnessplan != 0) {
+                res.render('error');
+                }
+                res.render('addfitness', { fitnessplan: fitnessplan });
+            }
+        }
+    );
+}
 
 /*
 res.render('fitnessApp'),

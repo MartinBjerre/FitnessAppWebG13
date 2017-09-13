@@ -28,3 +28,18 @@ block content
                         tr
                             td
                                 input(type="submit" value="add")
+                    table
+                        tr
+                            th Exercice
+                            th Description
+                            th Set
+                            th Reps
+                        for object in fitnessplan
+                            tr
+                                td = object.exercise
+                                td = object.description
+                                td = object.sets
+                                td = object.repstime
+
+
+
