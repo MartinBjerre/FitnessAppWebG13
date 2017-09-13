@@ -13,9 +13,9 @@ module.exports.fitnessApp = function (req, res)
 }
 //Testing communication between javascript and pug (each in)
 module.exports.fitness = function (req, res) {
-    fitnessPlan.find({}, {}, function (err, docs) {
+    fitnessPlan.find({}, {}, function (err, fitnessApp) {
         res.render('addfitness', {
-            "planlist": docs
+            "planlist": fitnessApp
         });
     });
 };
