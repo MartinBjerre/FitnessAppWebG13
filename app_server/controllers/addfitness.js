@@ -1,5 +1,5 @@
 
-module.exports.fitnessAp = function (req, res)
+module.exports.fitnessApp = function (req, res)
 {
     res.render('FitnessApp'), {
         title: 'FitnessApp',
