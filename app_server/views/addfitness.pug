@@ -10,10 +10,17 @@ block content
                 form.form-horizontal(action="/routes", method="get", role="form")
                     .form-group
                         tr
-                            td
-                                 input#Exercise.form-control(type='Text' name="Exercise")
-                            td
-                            td
+                            th Exercice
+                            th Description
+                            th Set
+                            th Reps
+                                td
+                                     input#Exercise.form-control(type='Text' name="Exercise")
+                                td  
+                                    label.col-xs-10.col-sm-2.control-label(for="Description") Description
+                                        .col-xs-12.col-sm-10
+                                             input#Description.form-control(name="Description")
+                                td
                
                 .form-group
                 label.col-xs-10.col-sm-2.control-label(for="Description") Description
