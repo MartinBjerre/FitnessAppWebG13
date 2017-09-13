@@ -7,5 +7,5 @@ var addToSchema = new mongoose.Schema({
     repstime: Number
 });
 
-module.exports = mongoose.model('FitnessPlan', addToSchema);
+//module.exports = mongoose.model('FitnessPlan', addToSchema);
 
