@@ -9,15 +9,21 @@ module.exports.fitnessApp = function(req, res) {
                 sets: req.body.Sets,
                 repstime: req.body.Repstime
         },
-        (err, fitnessplan) =>
+        (err, fitnessplan2) =>
         {
             if (err)
             {
                 res.render('error');
             }
-            else
-            {
-                res.render('addfitness', { title: "fitnessplan", fitnessplan: fitnessplan });
+            else {
+                fitnessplan.find({},
+                    (err, fitnessplan) => {
+                        if (err) {
+                            res.render('error');
+                        } else {
+                            res.render('addfitness', { title: "fitnessplan", fitnessplan: fitnessplan });
+                        }
+                    });
             }
         });
 };
