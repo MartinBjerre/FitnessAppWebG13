@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 router
     .route('/addfitness')
     .post(addfitnes.fitnessApp)
-    .get(addfitnes.fitness);
+    .get(addfitnes.Getfitness);
 ///* GET homepage. */
 //router.get('/', homepageController);
 

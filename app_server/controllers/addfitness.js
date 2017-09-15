@@ -1,15 +1,15 @@
 var mongoose = require('mongoose');
-var fitnessplan = mongoose.model('fitnessPlan');
+var fitnessplan = mongoose.model('fitnessplan');
 
 module.exports.fitnessApp = function(req, res) {
     fitnessplan.create(
         {
-            exercise: req.body.Exercise,
-            description: req.body.Description,
-            sets: req.body.Sets,
-            repstime: req.body.Repstime
+                exercise: req.body.Exercise,
+                description: req.body.Description,
+                sets: req.body.Sets,
+                repstime: req.body.Repstime
         },
-        (err, location) =>
+        (err, fitnessplan) =>
         {
             if (err)
             {
@@ -17,31 +17,24 @@ module.exports.fitnessApp = function(req, res) {
             }
             else
             {
-                res.render('addfitness');
+                res.render('addfitness', { title: "fitnessplan", fitnessplan: fitnessplan });
             }
         });
 };
 
-module.exports.fitnessApp = function(req, res) {
+module.exports.Getfitness = function(req, res) {
     fitnessplan.find({},
         (err, fitnessplan) => {
             if (err) {
                 res.render('error');
             }
             else{
-                res.render('addfitness', { fitnessplan: fitnessplan });
+                res.render('addfitness', { title: "fitnessplan" , fitnessplan: fitnessplan });
             }
         }
     );
 }
 
-//Testing communication between javascript and pug (each in)*/
-module.exports.fitness = function (req, res) {
-    fitnessplan.find({}, {}, function (err, docs) {
-        res.render('addfitness', {
-            "addfitness": docs
-        });
-    });
-};
+
 
 

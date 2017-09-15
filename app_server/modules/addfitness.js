@@ -7,4 +7,4 @@ var fitnessplan = new mongoose.Schema({
     repstime: Number
 });
 
-var fitnessPlan = mongoose.model('fitnessPlan', fitnessplan);
+var fitnessPlan = mongoose.model('fitnessplan', fitnessplan);
