@@ -5,15 +5,32 @@ module.exports.CreateWorkout = function (req,res) {
   Workout.create({
       name: req.body.WName,
       description: req.body.WDescription },
-      (err, work) => {
-        res.redirect('/workout');
+      (err, workout) => {
+      if (err){
+          res.render('error');
+      } else {
+          Workout.find({},
+              (err, workout) => {
+                  if (err) {
+                      res.render('error');
+                  }
+                  else {
+                      res.render('workout', {title: 'workout', workout: workout});
+                  }
+              });
+           }
       });
 };
 
 module.exports.ShowAll = function (req,res) {
     Workout.find({})
-        .exec((err, work) => {
-            res.render('workout', {title: 'Workout', work: work});
+        .exec((err, workout) => {
+        if(err){
+            res.render('error');
+        }
+        else {
+            res.render('workout', {title: 'workout', workout: workout});
+        }
         });
 };
 
@@ -22,6 +39,6 @@ module.exports.remove= function(req, res){
     Workout.findByIdAndRemove(
         req.params.id,
         (err, workout) => {
-            res.redirect('/workout');
+            res.redirect('workout');
         });
 };

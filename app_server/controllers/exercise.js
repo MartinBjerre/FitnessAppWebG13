@@ -12,26 +12,31 @@ module.exports.CreateExercise = function(req, res) {
                 repstime: req.body.Repstime
         },
         (err, exer) => {
-            Workout.findById(
+            Workout.findByIdAndUpdate(
                 req.params.workoutId,
                 {$push: {exercise: exer}},
-                {new: true},
-                (err, workout) => {
+                {new: true}, //)
+                //.populate('exercise')
+                (err, Workout) => {
                     if (err) {
                         res.render('error');
                     }
                     else {
-                        res.render('Workout/' + req.params.workoutId + '/exercise');
+                        res.redirect('/workout/' +req.params.workoutId + '/exercise/');
                     }
                 });
-        });
+    });
 };
 
 module.exports.GetByWorkoutId = function(req, res) {
     Workout.findById(req.params.workoutId)
-    .populate('exercises')
-        .exec((err, workout)=> {
-        res.render('exercise', { title: "Exercise" , exercise: Exercise });
+        .populate('exercise')
+        .exec((err, Workout)=> {
+        if (err){
+            res.render('error');
+        } else {
+            res.render('exercise', {title: 'Exercise', exercise: Workout.exercise, workoutId: req.params.workoutId});
+        }
         });
 };
 

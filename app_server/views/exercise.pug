@@ -1,12 +1,6 @@
 extends layout
 
 block content
-    ul.breadcrumb
-        li
-            a(href="/") Home
-        li
-            a(href="/workout") Workout
-        li.active= title
     .row.page-header
         .col-lg-12
             h1 Exercises
@@ -16,7 +10,7 @@ block content
                     .form-group
                     table
                         tr
-                            th Exercice
+                            th Exercise
                             th Description
                             th Set
                             th Reps
@@ -28,15 +22,12 @@ block content
                             td 
                                 input#Sets.form-control(name="Sets")
                             td 
-                                input#Repstime.form-control(name="Repstime")               
-
-                        tr
+                                input#Repstime.form-control(name="Repstime")
                             td
                                 input(type="submit" value="add")
                     table
                         tr
-
-                            th Exercice
+                            th Exercise
                             th Description
                             th Set
                             th Reps

@@ -1,15 +1,8 @@
 extends layout
 
 block content
-    ul.breadcrumb
-        li
-            a(href="/") Home
-        li.active= title
-
-    div.bs-docs-section
-        .row
-        .col-xs-12.col-md-6
-            div.page-header
+    .row.page-header
+            .col-lg-12
                 h1 Workout
                 .row
                 .col-ex-12.col-md-6
@@ -22,7 +15,7 @@ block content
                                 td
                                     input#Name.from-control(name="WName")
                                 td
-                                    input#discription.from-control(name="WDiscription")
+                                    input#discription.from-control(name="WDescription")
                              tr
                                 td
                                     input(type="submit" value="add")
@@ -31,11 +24,11 @@ block content
                                     th Name
                                     th Discription
 
-                                for value in Workout
+                                for value in workout
                                     tr
                                         td= value.name
                                         td=value.description
                                         td
                                             div.btn-group.btn-sm
-                                                a.btn.btn-primary.btn-sm(href="/workouts/" + object._id + "/exercises" )= 'Exercises '
-                                                    span.badge= object.exercise.length
+                                                a.btn.btn-primary.btn-sm(href="/workout/" + value._id + "/exercise" )= 'Exercises'
+                                            //a(class= 'button ' href="/workouts/" + object._id + "/exercises" ) Exercises
