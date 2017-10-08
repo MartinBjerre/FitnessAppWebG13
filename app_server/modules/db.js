@@ -1,6 +1,5 @@
-var mongoose = require('mongoose');
-var gracefulShutdown; 
-var url = 'mongodb://localhost:27017/myproject';
+const mongoose = require('mongoose');
+const url = 'mongodb://localhost:27017/myproject';
 if(process.env.NODE_ENV === 'production') {
         url= process.env.MONGODB_URI;
 }
@@ -20,5 +19,5 @@ mongoose.connection.on('disconnected', function () {
 });
 
 
-require('./addfitness');
+require('./exercise');
 

@@ -1,0 +1,41 @@
+extends layout
+
+block content
+    ul.breadcrumb
+        li
+            a(href="/") Home
+        li.active= title
+
+    div.bs-docs-section
+        .row
+        .col-xs-12.col-md-6
+            div.page-header
+                h1 Workout
+                .row
+                .col-ex-12.col-md-6
+                    form.from-line(method="post", action ='/workout/CreateWorkout')
+                         table
+                             tr
+                                th Name
+                                th Discription
+                             tr
+                                td
+                                    input#Name.from-control(name="WName")
+                                td
+                                    input#discription.from-control(name="WDiscription")
+                             tr
+                                td
+                                    input(type="submit" value="add")
+                             table
+                                tr
+                                    th Name
+                                    th Discription
+
+                                for value in Workout
+                                    tr
+                                        td= value.name
+                                        td=value.description
+                                        td
+                                            div.btn-group.btn-sm
+                                                a.btn.btn-primary.btn-sm(href="/workouts/" + object._id + "/exercises" )= 'Exercises '
+                                                    span.badge= object.exercise.length

@@ -1,17 +1,11 @@
-var express = require('express');
-var router = express.Router();
-var addfitnes = require('../controllers/addfitness');
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Fitness App Alexander, Martin og Nanna' });
-});
+const express = require('express');
+const router = express.Router();
+const workout = require('../controllers/workout');
+const exercise = require('../controllers/exercise');
 
 
-router
-    .route('/addfitness')
-    .post(addfitnes.fitnessApp)
-    .get(addfitnes.Getfitness);
-///* GET homepage. */
-//router.get('/', homepageController);
+router.post('/workout/create/', workout.CreateWorkout);
+router.get('/workout/:workoutId/exercise',exercise.GetByWorkoutId);
+router.post('/workout/:workoutId/exercise/create',exercise.CreateExercise)
 
 module.exports = router;
