@@ -1,17 +1,15 @@
 const mongoose = require('mongoose');
-var SchemaWO =  new mongoose.Schema;
+var Schema =   mongoose.Schema;
 
-const workoutSH = SchemaWO({
+const workoutSH = Schema({
    name: {
        type: String
    },
    description:{
        type: String
    },
-    exercise: {
-       type: SchemaWO.Types.ObjectId,
-       ref: 'exercise'
-    }
+    exercise: [{ type: Schema.Types.ObjectId, ref: 'exercise'
+    }]
 });
 
 const Workout = mongoose.model('Workout', workoutSH);

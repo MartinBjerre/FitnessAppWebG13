@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const url = 'mongodb://localhost:27017/myproject';
+const url = 'mongodb://localhost:27017/FitnessAP';
 if(process.env.NODE_ENV === 'production') {
         url= process.env.MONGODB_URI;
 }
@@ -20,4 +20,5 @@ mongoose.connection.on('disconnected', function () {
 
 
 require('./exercise');
+require('./workout');
 

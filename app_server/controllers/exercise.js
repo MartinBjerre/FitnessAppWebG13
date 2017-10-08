@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Workout = mongoose.model('Workout');
-const Exercise = mongoose.model('Exercise');
+const Exercise = mongoose.model('exercise');
 
 
 module.exports.CreateExercise = function(req, res) {
