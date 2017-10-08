@@ -15,8 +15,7 @@ module.exports.CreateExercise = function(req, res) {
             Workout.findByIdAndUpdate(
                 req.params.workoutId,
                 {$push: {exercise: exer}},
-                {new: true}, //)
-                //.populate('exercise')
+                {new: true},
                 (err, Workout) => {
                     if (err) {
                         res.render('error');
@@ -40,6 +39,14 @@ module.exports.GetByWorkoutId = function(req, res) {
         });
 };
 
-
-
-
+module.exports.remove = function (req, res) {
+    Exercise.findByIdAndRemove(req,params.exeId)
+        .exec(
+        (err, exercise) => {
+            if (err){
+                res.render('error');
+            } else {
+                res.redirect('/workout/' + req.params.workoutId + '/exercise/');
+            }
+        });
+};

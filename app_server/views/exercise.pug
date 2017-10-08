@@ -37,6 +37,8 @@ block content
                                 td= value.description
                                 td= value.sets
                                 td= value.repstime
-
+                                td
+                                   div.btn-group.btn-sm
+                                       a.btn.btn-danger.btn-sm(href="/workout/" + workoutId + "/exercise/" + value._id + "/remove" )= 'remove'
 
 
