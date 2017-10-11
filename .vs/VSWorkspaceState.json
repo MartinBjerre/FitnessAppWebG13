@@ -8,6 +8,6 @@
     "\\app_server\\views",
     "\\public"
   ],
-  "SelectedNode": "\\app_server\\controllers\\addfitness.js",
+  "SelectedNode": "\\app_server\\modules\\db.js",
   "PreviewInSolutionExplorer": false
 }
