@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const User = mongoose.model('user');
 const Workout = mongoose.model('Workout');
 
 module.exports.CreateWorkout = function (req,res) {
@@ -9,13 +10,17 @@ module.exports.CreateWorkout = function (req,res) {
       if (err){
           res.render('error');
       } else {
-          Workout.find({},
+          User.findByIdAndUpdate(
+              req.params.userId,
+              {$push: {workout: workout}},
+              {new: true},
               (err, workout) => {
                   if (err) {
                       res.render('error');
                   }
                   else {
-                      res.render('workout', {title: 'workout', workout: workout});
+                      res.redirect('/' +req.params.userId + '/workout/');
+                      //res.render('workout', {title: 'workout', workout: workout});
                   }
               });
            }

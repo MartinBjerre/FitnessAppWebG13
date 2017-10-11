@@ -39,9 +39,11 @@ module.exports.GetByWorkoutId = function(req, res) {
         });
 };
 
+// Snak med poul ejner om den her funktion.
 module.exports.remove = function (req, res) {
-    Exercise.findByIdAndRemove(req,params.exeId)
-        .exec(
+    Workout.findByIdAndUpdate(req.params.workoutId,
+        {$pull: {exercise: exer}},
+        {new: true},
         (err, exercise) => {
             if (err){
                 res.render('error');

@@ -8,8 +8,7 @@ const workoutSH = Schema({
    description:{
        type: String
    },
-    exercise: [{ type: Schema.Types.ObjectId, ref: 'exercise'
-    }]
+    exercise: [{ type: Schema.Types.ObjectId, ref: 'exercise'}]
 });
 
 const Workout = mongoose.model('Workout', workoutSH);
