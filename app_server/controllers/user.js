@@ -15,7 +15,8 @@ module.exports.CreateUser = function (req,res) {
                             res.render('error');
                         }
                         else {
-                            res.render('user', {title: 'user', user: user});
+                            res.redirect('/');
+                            //res.render('user', {title: 'user', user: user});
                         }
                     });
             }

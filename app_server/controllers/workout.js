@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('user');
-const Workout = mongoose.model('Workout');
+const Workout = mongoose.model('workout');
 
 module.exports.CreateWorkout = function (req,res) {
   Workout.create({
@@ -19,7 +19,7 @@ module.exports.CreateWorkout = function (req,res) {
                       res.render('error');
                   }
                   else {
-                      res.redirect('/' +req.params.userId + '/workout/');
+                      res.redirect('/user/' +req.params.userId + '/workout/');
                       //res.render('workout', {title: 'workout', workout: workout});
                   }
               });
@@ -27,15 +27,23 @@ module.exports.CreateWorkout = function (req,res) {
       });
 };
 
+
+
 module.exports.ShowAll = function (req,res) {
-    Workout.find({})
-        .exec((err, workout) => {
-        if(err){
-            res.render('error');
+    User.findById(req.params.userId)  //her er der en fejl ved ikke hvad.
+        .populate('workout')
+        .exec((err, User) => {
+        if('error',err ){
+            res.render(err);
         }
         else {
-            res.render('workout', {title: 'workout', workout: workout});
-        }
+            if (User != null) {
+                res.render('workout', {title: 'Workout', workout: User.workout, userId: req.params.userId});
+            } else {
+                res.render('error', {message: 'User not found'});
+            }
+
+            }
         });
 };
 

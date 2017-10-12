@@ -11,4 +11,4 @@ const workoutSH = Schema({
     exercise: [{ type: Schema.Types.ObjectId, ref: 'exercise'}]
 });
 
-const Workout = mongoose.model('Workout', workoutSH);
+const workout = mongoose.model('workout', workoutSH);

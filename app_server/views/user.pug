@@ -6,7 +6,7 @@ block content
             h1 User
             .row
             .col-ex-12.col-md-6
-                form.from-line(method="post", action ='/CreateUser')
+                form.from-line(method="post", action ='/user/CreateUser')
                     table
                         tr
                             th Name
@@ -23,8 +23,7 @@ block content
                             for value in user
                                 tr
                                     td= value.name
-                                    td=value.description
                                     td
                                         div.btn-group.btn-sm
-                                            a.btn.btn-primary.btn-sm(href="/user/" + value._id + "/workout" )= 'workout'
+                                            a.btn.btn-primary.btn-sm(href='/user/' + value._id + '/workout' )= 'workout'
 

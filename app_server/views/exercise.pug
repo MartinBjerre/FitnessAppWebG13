@@ -6,7 +6,7 @@ block content
             h1 Exercises
             .row
             .col-xs-12.col-md-6
-                form.form-horizontal(action="/workout/"+ workoutId +"/exercise/CreateExercise", method="post", role="form")
+                form.form-horizontal(action='/user/'+ userId +'/workout/'+ workoutId +'/exercise/CreateExercise', method="post", role="form")
                     .form-group
                     table
                         tr
@@ -39,6 +39,6 @@ block content
                                 td= value.repstime
                                 td
                                    div.btn-group.btn-sm
-                                       a.btn.btn-danger.btn-sm(href="/workout/" + workoutId + "/exercise/" + value._id + "/remove" )= 'remove'
+                                       a.btn.btn-danger.btn-sm(href="/user/"+ userId +"/workout/" + workoutId + "/exercise/" + value._id + "/remove" )= 'remove'
 
 

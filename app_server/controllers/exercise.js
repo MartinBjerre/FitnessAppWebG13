@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-const Workout = mongoose.model('Workout');
+const Workout = mongoose.model('workout');
 const Exercise = mongoose.model('exercise');
-
 
 module.exports.CreateExercise = function(req, res) {
     Exercise.create(
@@ -21,7 +20,7 @@ module.exports.CreateExercise = function(req, res) {
                         res.render('error');
                     }
                     else {
-                        res.redirect('/workout/' +req.params.workoutId + '/exercise/');
+                        res.redirect('/user/'+req.params.userId + '/workout/' +req.params.workoutId + '/exercise/');
                     }
                 });
     });
@@ -36,10 +35,10 @@ module.exports.GetByWorkoutId = function(req, res) {
         } else {
             res.render('exercise', {title: 'Exercise', exercise: Workout.exercise, workoutId: req.params.workoutId});
         }
-        });
+    });
 };
 
-// Snak med poul ejner om den her funktion.
+// Snak med PE om den her funktion.
 module.exports.remove = function (req, res) {
     Workout.findByIdAndUpdate(req.params.workoutId,
         {$pull: {exercise: exer}},
@@ -48,7 +47,7 @@ module.exports.remove = function (req, res) {
             if (err){
                 res.render('error');
             } else {
-                res.redirect('/workout/' + req.params.workoutId + '/exercise/');
+                res.redirect('/user/'+req.params.userId+'/workout/' + req.params.workoutId + '/exercise/');
             }
         });
 };
